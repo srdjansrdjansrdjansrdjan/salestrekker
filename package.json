@@ -1,0 +1,22 @@
+{
+  "name": "salestrekkerapp",
+  "version": "1.0.0",
+  "description": "testapp",
+  "main": "app.js",
+  "scripts": {
+    "test": "Srdjan",
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": ""
+  },
+  "author": "Srdjan Prokin",
+  "license": "ISC"
+}
