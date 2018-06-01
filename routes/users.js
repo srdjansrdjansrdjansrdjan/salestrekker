@@ -62,13 +62,13 @@ router.post('/authenticate',(req, res, next)=>{
                 res.json({success: false, msg: "Wrong password"})
             }
         })
-
     });
 });
 
-// Profile
+// Profile       passport.authenticate se stavi ako hocemo da je ruta protektovana, znaci da mora da salje i token u requestu
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
     res.json({user: req.user});
 });
+
 
 module.exports = router;
