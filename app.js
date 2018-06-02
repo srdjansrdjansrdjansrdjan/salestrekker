@@ -8,9 +8,9 @@ const config = require('./config/database');
 
 
 const app = express();
-const port = 3000;
+// const port = 3000;
 // ovo je port za heroku sajt da tamo deplojujem app
-// const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 //connect to database
 mongoose.connect(config.database);
