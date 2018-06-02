@@ -1432,7 +1432,7 @@ var AuthService = /** @class */ (function () {
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreation', submitData, {headers: headers}).map(res => res.json());
         // ovo je za heroku
-        return this.http.post('users/register', submitData, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('form/formCreation', submitData, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.submitUserCreatedForm = function (userFormCreated) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
