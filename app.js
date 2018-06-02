@@ -50,25 +50,25 @@ app.use("/users", users);
 app.use("/form", formData);
 
 // ovo smo napisali da nebi imali error na startu
-// app.get('/',(req, res) => {
-//     res.send('invalid endpoint');
-// });
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
-
-app.get('/form/finalForm/:id', function (req, res, next) {
-    res.json({msg: 'This is CORS-enabled for all origins!'})    
+app.get('/',(req, res) => {
+    res.send('invalid endpoint');
 });
 
-// app.get('*', (req, res) => {
-//     // res.redirect('/');
-//     res.sendFile(path.join(__dirname, 'public/index.html'));
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+
+
+// app.get('/form/finalForm/:id', function (req, res, next) {
+//     res.json({msg: 'This is CORS-enabled for all origins!'})    
 // });
+
+app.get('*', (req, res) => {
+    // res.redirect('/');
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 // start server
 app.listen(port, () => {
