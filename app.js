@@ -53,10 +53,10 @@ app.get('/',(req, res) => {
     res.send('invalid endpoint');
 });
 
-app.get('*', (req, res) => {
-    res.redirect('/');
-    // res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.redirect('/');
+//     // res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
 
 // start server
 app.listen(port, () => {
