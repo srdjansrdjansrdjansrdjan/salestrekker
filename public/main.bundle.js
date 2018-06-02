@@ -1445,7 +1445,7 @@ var AuthService = /** @class */ (function () {
         headers.append('Content-Type', "application/json");
         // ovo ispod smo dobili current url pa smo podelili da bi dobili samo id
         var finalFormId = this.router.url.split('/');
-        console.log(finalFormId[2]);
+        // console.log(finalFormId[2]);
         // return this.http.get('http://localhost:3000/form/finalForm/' + finalFormId[2]).map(res => res.json());
         return this.http.get('form/finalForm/' + finalFormId[2]).map(function (res) { return res.json(); });
     };
