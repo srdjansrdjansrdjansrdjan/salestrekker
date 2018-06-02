@@ -1432,13 +1432,13 @@ var AuthService = /** @class */ (function () {
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreation', submitData, {headers: headers}).map(res => res.json());
         // ovo je za heroku
-        return this.http.post('formCreation', submitData, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('form/formCreation', submitData, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.submitUserCreatedForm = function (userFormCreated) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreatedByUser', userFormCreated, {headers: headers}).map(res => res.json());
-        return this.http.post('formCreatedByUser', userFormCreated, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('form/formCreatedByUser', userFormCreated, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getFinalForm = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1447,7 +1447,7 @@ var AuthService = /** @class */ (function () {
         var finalFormId = this.router.url.split('/');
         // console.log(finalFormId[2]);
         // return this.http.get('http://localhost:3000/form/finalForm/' + finalFormId[2]).map(res => res.json());
-        return this.http.get('finalForm/' + finalFormId[2]).map(function (res) { return res.json(); });
+        return this.http.get('form/finalForm/' + finalFormId[2]).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getAllFormsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1455,14 +1455,14 @@ var AuthService = /** @class */ (function () {
         var finalFormUserId = userId;
         // console.log(finalFormUserId);
         // return this.http.get('http://localhost:3000/form/finalForm/data/' + finalFormUserId).map(res => res.json());
-        return this.http.get('finalForm/data/' + finalFormUserId).map(function (res) { return res.json(); });
+        return this.http.get('form/finalForm/data/' + finalFormUserId).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getAllSubmitetFromsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', "application/json");
         // console.log(finalFormUserId);
         // return this.http.get('http://localhost:3000/form/form/' + userId).map(res => res.json());
-        return this.http.get('form/' + userId).map(function (res) { return res.json(); });
+        return this.http.get('form/form/' + userId).map(function (res) { return res.json(); });
     };
     AuthService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
