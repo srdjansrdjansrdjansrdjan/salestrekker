@@ -66,16 +66,16 @@ app.use("/form", formData);
 // });
 app.use((error, req, res, next)=>{
     res.status(error.status || 500);
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 
 app.get('*', (req, res) => {
     // res.redirect('/');
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 // start server
 app.listen(port, () => {
-    console.log("server started on port "+port);
+    console.log("server started on port " + port);
 });
