@@ -150,8 +150,9 @@ var appRoutes = [
     // {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'formCreation', component: __WEBPACK_IMPORTED_MODULE_17__components_form_creation_form_creation_component__["a" /* FormCreationComponent */] },
-    { path: 'finalForm/:finalFormId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */] }
+    { path: 'formCreation', component: __WEBPACK_IMPORTED_MODULE_17__components_form_creation_form_creation_component__["a" /* FormCreationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'finalForm/:finalFormId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'form/', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -1555,7 +1556,7 @@ module.exports = "<div class=\"col-md-7\">\n    <form [formGroup]='completeForm'
 /***/ 368:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Salestrekker App</h1>\n  <p class=\"lead\">Hello to my app</p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a><a class=\"btn btn-default\" [routerLink]=\"['/login']\">Login</a>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-4\">\n    <h3>prvi deo</h3>\n    <p>text za prvi deo</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>drugi deo</h3>\n    <p>text za drugi deo</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>treci deo</h3>\n    <p>text za treci deo</p>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1>Salestrekker App</h1>\n  <p class=\"lead\">Hello to my app</p>\n  <div>\n    <!-- <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a><a class=\"btn btn-default\" [routerLink]=\"['/login']\">Login</a> -->\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-4\">\n    <h3>prvi deo</h3>\n    <p>text za prvi deo</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>drugi deo</h3>\n    <p>text za drugi deo</p>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>treci deo</h3>\n    <p>text za treci deo</p>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
