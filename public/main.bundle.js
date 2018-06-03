@@ -1445,6 +1445,8 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.submitUserCreatedForm = function (userFormCreated) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreatedByUser', userFormCreated, {headers: headers}).map(res => res.json());
         return this.http.post('form/formCreatedByUser', userFormCreated, { headers: headers }).map(function (res) { return res.json(); });
