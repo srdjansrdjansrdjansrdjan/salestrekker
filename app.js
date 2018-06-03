@@ -50,9 +50,9 @@ app.use("/users", users);
 app.use("/form", formData);
 
 // ovo smo napisali da nebi imali error na startu
-// app.get('/',(req, res) => {
-//     res.send('invalid endpoint');
-// });
+app.get('/',(req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
 
 // app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
@@ -66,7 +66,8 @@ app.use("/form", formData);
 // });
 app.use((error, req, res, next)=>{
     res.status(error.status || 500);
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
+    res.redirect('/');
+
 });
 
 
