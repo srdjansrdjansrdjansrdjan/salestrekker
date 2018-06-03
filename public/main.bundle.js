@@ -1453,6 +1453,8 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.getFinalForm = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // ovo ispod smo dobili current url pa smo podelili da bi dobili samo id
         var finalFormId = this.router.url.split('/');
