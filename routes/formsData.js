@@ -9,6 +9,7 @@ const CFBU = require('../models/createdFormByUser');
 
 // register(ovo ce biti putanja za register, posto je u file user bice /user/register)
 router.post('/formCreation', passport.authenticate('jwt', {session:false}), (req, res, next)=> {
+    if (!user) { return res.redirect('/login'); }
     // new user to smo napravili iz modela
     let newFormData = new FormData({
         // req.body.name ono sto je submitovano u formi
@@ -38,11 +39,13 @@ router.post('/formCreation', passport.authenticate('jwt', {session:false}), (req
 });
 
 router.get('/form', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
+    if (!user) { return res.redirect('/login'); }
     res.json({user: req.user});
 });
 
 
 router.get('/form/:userId', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
+    if (!user) { return res.redirect('/login'); }
     FormData.find({formDataUserId: req.params.userId}, (err, data) =>{
         // console.log('ovo je sta se vraca za finalFormId: ' + req.params.finalFormUserId)
         if(!data){
@@ -56,6 +59,7 @@ router.get('/form/:userId', passport.authenticate('jwt', {session:false}), (req,
 
 
 router.post('/formCreatedByUser', passport.authenticate('jwt', {session:false}), (req, res, next)=> {
+    if (!user) { return res.redirect('/login'); }
     // new user to smo napravili iz modela
     let newFormCreatedByUser = new CFBU({
         userId:req.body.requestedUserId,
@@ -75,12 +79,13 @@ router.post('/formCreatedByUser', passport.authenticate('jwt', {session:false}),
 
 
 router.get('/formCreatedByUser', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
+    if (!user) { return res.redirect('/login'); }
     res.json({user: req.user});
 });
 
 
 
-router.get('/finalForm/:finalFormId', passport.authenticate('jwt', {session:false}), (req, res)=>{
+router.get('/finalForm/:finalFormId', (req, res)=>{
     // console.log('finalFormId: '+ req.params.finalFormId);
     // req.params.finalFormId ovo je da bi dobili parametar iz url :finalFormId
     CFBU.getCFBU(req.params.finalFormId, (err, data) =>{
@@ -98,6 +103,7 @@ router.get('/finalForm/:finalFormId', passport.authenticate('jwt', {session:fals
 
 
 router.get('/finalForm/data/:finalFormUserId', passport.authenticate('jwt', {session:false}), (req, res)=>{
+    if (!user) { return res.redirect('/login'); }
     // console.log('finalFormId: '+ req.params.finalFormId);
     // req.params.finalFormId ovo je da bi dobili parametar iz url :finalFormId
     CFBU.find({userId:req.params.finalFormUserId}, (err, data) =>{
