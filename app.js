@@ -73,7 +73,7 @@ app.use("/form", formData);
 
 app.get('*', (req, res) => {
     // res.redirect('/');
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // start server
