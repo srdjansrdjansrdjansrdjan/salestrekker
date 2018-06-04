@@ -1188,6 +1188,7 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.listAllSubmitetFormsForUser = function () {
         var _this = this;
         this.authService.getAllSubmitetFromsForUser(this.userId).subscribe(function (data) {
+            console.log("ovo je data: " + data);
             _this.allSubmitedFormsForUser = data;
             // console.log(this.allForms)
             _this.showHtmlList = false;
@@ -1463,7 +1464,7 @@ var AuthService = /** @class */ (function () {
         var finalFormId = this.router.url.split('/');
         // console.log(finalFormId[2]);
         // return this.http.get('http://localhost:3000/form/finalForm/' + finalFormId[2]).map(res => res.json());
-        return this.http.get('finalForm/' + finalFormId[2]).map(function (res) { return res.json(); });
+        return this.http.get('form/finalForm/' + finalFormId[2]).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getAllFormsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1481,6 +1482,7 @@ var AuthService = /** @class */ (function () {
         this.loadToken();
         console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
+        console.log("ovo je token koji nije dobar" + this.authToken);
         headers.append('Content-Type', "application/json");
         // console.log(finalFormUserId);
         // return this.http.get('http://localhost:3000/form/form/' + userId, {headers: headers}).map(res => res.json());
