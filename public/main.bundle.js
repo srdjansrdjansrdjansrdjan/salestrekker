@@ -1463,7 +1463,7 @@ var AuthService = /** @class */ (function () {
         var finalFormId = this.router.url.split('/');
         // console.log(finalFormId[2]);
         // return this.http.get('http://localhost:3000/form/finalForm/' + finalFormId[2]).map(res => res.json());
-        return this.http.get('form/finalForm/' + finalFormId[2]).map(function (res) { return res.json(); });
+        return this.http.get('finalForm/' + finalFormId[2]).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getAllFormsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
