@@ -1444,7 +1444,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.submitForm = function (submitData) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
-        console.log('ovo je token: ' + this.authToken);
+        // console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreation', submitData, {headers: headers}).map(res => res.json());
@@ -1454,7 +1454,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.submitUserCreatedForm = function (userFormCreated) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
-        console.log('ovo je token: ' + this.authToken);
+        // console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreatedByUser', userFormCreated, {headers: headers}).map(res => res.json());
@@ -1472,7 +1472,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.getAllFormsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
-        console.log('ovo je token: ' + this.authToken);
+        // console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         var finalFormUserId = localStorage.getItem('user').split(',')[0].split(':')[1].replace('"', '').replace('"', '');
@@ -1483,9 +1483,8 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.getAllSubmitetFromsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
-        console.log('ovo je token: ' + this.authToken);
+        // console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
-        console.log("ovo je token koji nije dobar" + this.authToken);
         headers.append('Content-Type', "application/json");
         // console.log(finalFormUserId);
         // return this.http.get('http://localhost:3000/form/form/' + userId, {headers: headers}).map(res => res.json());

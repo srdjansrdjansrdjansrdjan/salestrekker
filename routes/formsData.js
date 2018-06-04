@@ -47,7 +47,7 @@ router.get('/form', passport.authenticate('jwt', {session:false}), (req, res, ne
 
 router.get('/form/:userId', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
     if (!req.user) { return res.redirect('/login'); }
-    console.log(user)
+    console.log('ovo je user u /form/:userId' + req.user)
     FormData.find({formDataUserId: req.params.userId}, (err, data) =>{
         // console.log('ovo je sta se vraca za finalFormId: ' + req.params.finalFormUserId)
         if(!data){
