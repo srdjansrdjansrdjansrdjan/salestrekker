@@ -152,7 +152,8 @@ var appRoutes = [
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'formCreation', component: __WEBPACK_IMPORTED_MODULE_17__components_form_creation_form_creation_component__["a" /* FormCreationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'finalForm/:finalFormId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'form/', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] }
+    { path: 'form/', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: '**', redirectTo: '' }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -1406,6 +1407,7 @@ var AuthService = /** @class */ (function () {
         // na backendu je ova strana protekt pa mora da se posalje i token sa hederom
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
+        // console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // return this.http.get('http://localhost:3000/users/profile',{headers: headers}).map(res => res.json());
@@ -1414,6 +1416,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.loadToken = function () {
         var token = localStorage.getItem('id_token');
         this.authToken = token;
+        //  console.log('ovo je svaki put da se napravi token: ' + this.authToken);
     };
     // proverimo da li smo ulogovani da pokazemo login button ili ne(proverimo da li je token tu i da li je expired)
     AuthService.prototype.loggedIn = function () {
@@ -1437,6 +1440,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.submitForm = function (submitData) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
+        console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreation', submitData, {headers: headers}).map(res => res.json());
@@ -1446,6 +1450,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.submitUserCreatedForm = function (userFormCreated) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
+        console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // return this.http.post('http://localhost:3000/form/formCreatedByUser', userFormCreated, {headers: headers}).map(res => res.json());
@@ -1453,8 +1458,6 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.getFinalForm = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        this.loadToken();
-        headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // ovo ispod smo dobili current url pa smo podelili da bi dobili samo id
         var finalFormId = this.router.url.split('/');
@@ -1465,21 +1468,23 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.getAllFormsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
+        console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
-        var finalFormUserId = userId;
-        // console.log(finalFormUserId);
-        // return this.http.get('http://localhost:3000/form/finalForm/data/' + finalFormUserId).map(res => res.json());
-        return this.http.get('form/finalForm/data/' + finalFormUserId).map(function (res) { return res.json(); });
+        var finalFormUserId = localStorage.getItem('user').split(',')[0].split(':')[1].replace('"', '').replace('"', '');
+        console.log('ovo je finalFormUserId: ' + finalFormUserId);
+        // return this.http.get('http://localhost:3000/form/finalForm/data/' + finalFormUserId, {headers: headers}).map(res => res.json());
+        return this.http.get('form/finalForm/data/' + finalFormUserId, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getAllSubmitetFromsForUser = function (userId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
+        console.log('ovo je token: ' + this.authToken);
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', "application/json");
         // console.log(finalFormUserId);
-        // return this.http.get('http://localhost:3000/form/form/' + userId).map(res => res.json());
-        return this.http.get('form/form/' + userId).map(function (res) { return res.json(); });
+        // return this.http.get('http://localhost:3000/form/form/' + userId, {headers: headers}).map(res => res.json());
+        return this.http.get('form/form/' + userId, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
