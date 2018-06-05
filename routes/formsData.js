@@ -8,9 +8,9 @@ const CFBU = require('../models/createdFormByUser');
 
 
 // register(ovo ce biti putanja za register, posto je u file user bice /user/register)
-router.post('/formCreation', passport.authenticate('jwt', {session:false}), (req, res, next)=> {
-    if (!req.user) { return res.redirect('/login'); }
-    console.log(user)
+router.post('/formCreation', (req, res, next)=> {
+    // if (!req.user) { return res.redirect('/login'); }
+    // console.log(user)
     // new user to smo napravili iz modela
     let newFormData = new FormData({
         // req.body.name ono sto je submitovano u formi
@@ -46,7 +46,7 @@ router.get('/form', passport.authenticate('jwt', {session:false}), (req, res, ne
 
 
 router.get('/form/:userId', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
-    if (!req.user) { return res.redirect('/login'); }
+    // if (!req.user) { return res.redirect('/login'); }
     console.log('ovo je user u /form/:userId' + req.user)
     FormData.find({formDataUserId: req.params.userId}, (err, data) =>{
         // console.log('ovo je sta se vraca za finalFormId: ' + req.params.finalFormUserId)
@@ -60,9 +60,8 @@ router.get('/form/:userId', passport.authenticate('jwt', {session:false}), (req,
 });
 
 
-router.post('/formCreatedByUser', passport.authenticate('jwt', {session:false}), (req, res, next)=> {
-    if (!req.user) { return res.redirect('/login'); }
-    console.log('user: ' + user)
+router.post('/formCreatedByUser', (req, res, next)=> {
+    console.log('ovo je user post za formCreatedByUser' + req.user)
     // new user to smo napravili iz modela
     let newFormCreatedByUser = new CFBU({
         userId:req.body.requestedUserId,
@@ -82,8 +81,8 @@ router.post('/formCreatedByUser', passport.authenticate('jwt', {session:false}),
 
 
 router.get('/formCreatedByUser', passport.authenticate('jwt', {session:false}), (req, res, next)=>{
-    if (!req.user) { return res.redirect('/login'); }
-    console.log(user)
+    // if (!req.user) { return res.redirect('/login'); }
+    console.log('ovo je user get za formCreatedByUser' + req.user)
     res.json({user: req.user});
 });
 

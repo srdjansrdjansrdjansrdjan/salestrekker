@@ -150,9 +150,8 @@ var appRoutes = [
     // {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'formCreatedByUser', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'formCreation', component: __WEBPACK_IMPORTED_MODULE_17__components_form_creation_form_creation_component__["a" /* FormCreationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'finalForm/data/:finalFormUserId', component: __WEBPACK_IMPORTED_MODULE_17__components_form_creation_form_creation_component__["a" /* FormCreationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'formCreatedByUser', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'finalForm/:finalFormId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'form/', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'form/:userId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
@@ -1443,11 +1442,12 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.submitForm = function (submitData) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        this.loadToken();
+        // this.loadToken();
         // console.log('ovo je token: ' + this.authToken);
-        headers.append('Authorization', this.authToken);
+        // headers.append('Authorization', this.authToken);
+        console.log('ovo je token iz formCreation: ' + this.authToken);
         headers.append('Content-Type', "application/json");
-        // return this.http.post('http://localhost:3000/form/formCreation', submitData, {headers: headers}).map(res => res.json());
+        // return this.http.post('http://localhost:3000/form/formCreation', submitData).map(res => res.json());
         // ovo je za heroku
         return this.http.post('form/formCreation', submitData, { headers: headers }).map(function (res) { return res.json(); });
     };
