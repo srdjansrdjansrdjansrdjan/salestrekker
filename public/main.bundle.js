@@ -428,13 +428,13 @@ var FinalFormComponent = /** @class */ (function () {
             console.log(err);
             return false;
         });
-        if (this.requiredDataListReceive != [] || this.requiredDataListReceive != undefined) {
-            this.createFromOnFrontEnd();
+        if (this.requiredDataListReceive == [] || this.requiredDataListReceive == undefined) {
+            // this.createFromOnFrontEnd();
             console.log("ovo je lista required fields1: " + this.requiredDataListReceive);
         }
         else {
             setTimeout(function () {
-                if (_this.requiredDataListReceive != [] || _this.requiredDataListReceive != undefined) {
+                if (_this.requiredDataListReceive == [] || _this.requiredDataListReceive == undefined) {
                     _this.createFromOnFrontEnd();
                     console.log("ovo je lista required fields2: " + _this.requiredDataListReceive);
                 }
