@@ -428,24 +428,26 @@ var FinalFormComponent = /** @class */ (function () {
             console.log(err);
             return false;
         });
-        if (this.requiredDataListReceive == [] || this.requiredDataListReceive == undefined) {
-            // this.createFromOnFrontEnd();
+        if (this.requiredDataListReceive != [] || this.requiredDataListReceive != undefined) {
+            this.createFromOnFrontEnd();
             console.log("ovo je lista required fields1: " + this.requiredDataListReceive);
         }
         else {
             setTimeout(function () {
-                if (_this.requiredDataListReceive == [] || _this.requiredDataListReceive == undefined) {
+                if (_this.requiredDataListReceive != [] || _this.requiredDataListReceive != undefined) {
                     _this.createFromOnFrontEnd();
                     console.log("ovo je lista required fields2: " + _this.requiredDataListReceive);
                 }
                 else {
-                    setTimeout(function () {
-                        console.log("pauza");
-                        console.log("ovo je lista required fields pauza3: " + _this.requiredDataListReceive);
-                        _this.createFromOnFrontEnd();
-                    }, 300);
+                    if (_this.requiredDataListReceive != [] || _this.requiredDataListReceive != undefined) {
+                        setTimeout(function () {
+                            console.log("pauza 2");
+                            console.log("ovo je lista required fields pauza3: " + _this.requiredDataListReceive);
+                            _this.createFromOnFrontEnd();
+                        }, 300);
+                    }
                 }
-                console.log("pauza");
+                console.log("pauza 1");
                 console.log("ovo je lista required fields pauza4: " + _this.requiredDataListReceive);
                 _this.createFromOnFrontEnd();
             }, 100);
