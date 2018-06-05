@@ -430,28 +430,28 @@ var FinalFormComponent = /** @class */ (function () {
         });
         if (this.requiredDataListReceive != [] || this.requiredDataListReceive != undefined) {
             this.createFromOnFrontEnd();
-            // console.log("ovo je lista required fields1: " + this.requiredDataListReceive);
+            console.log("ovo je lista required fields1: " + this.requiredDataListReceive);
         }
         else {
             setTimeout(function () {
                 if (_this.requiredDataListReceive != [] || _this.requiredDataListReceive != undefined) {
                     _this.createFromOnFrontEnd();
-                    // console.log("ovo je lista required fields1: " + this.requiredDataListReceive);
+                    console.log("ovo je lista required fields2: " + _this.requiredDataListReceive);
                 }
                 else {
                     setTimeout(function () {
                         console.log("pauza");
-                        console.log("ovo je lista required fields pauza: " + _this.requiredDataListReceive);
+                        console.log("ovo je lista required fields pauza3: " + _this.requiredDataListReceive);
                         _this.createFromOnFrontEnd();
                     }, 300);
                 }
                 console.log("pauza");
-                console.log("ovo je lista required fields pauza: " + _this.requiredDataListReceive);
+                console.log("ovo je lista required fields pauza4: " + _this.requiredDataListReceive);
                 _this.createFromOnFrontEnd();
             }, 100);
-            console.log("ovo je lista required fields2: " + this.requiredDataListReceive);
+            console.log("ovo je lista required fields5: " + this.requiredDataListReceive);
         }
-        console.log("ovo je lista required fields3: " + this.requiredDataListReceive);
+        console.log("ovo je lista required fields6: " + this.requiredDataListReceive);
         // this.requiredDataListReceive = this.dtf.getPassData();
         // this.dtf.resetList();
         // this.createFromOnFrontEnd();
