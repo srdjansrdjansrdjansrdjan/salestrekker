@@ -152,7 +152,7 @@ var appRoutes = [
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'formCreation', component: __WEBPACK_IMPORTED_MODULE_17__components_form_creation_form_creation_component__["a" /* FormCreationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'formCreatedByUser', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'finalForm/:finalFormId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'finalForm/:finalFormId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */] },
     { path: 'form/', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'form/:userId', component: __WEBPACK_IMPORTED_MODULE_21__components_final_form_final_form_component__["a" /* FinalFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: '**', redirectTo: '' }
