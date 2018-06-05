@@ -450,6 +450,7 @@ var FinalFormComponent = /** @class */ (function () {
                 console.log("ovo je lista required fields pauza4: " + _this.requiredDataListReceive);
                 if (_this.requiredDataListReceive != [] || _this.requiredDataListReceive != undefined) {
                     _this.createFromOnFrontEnd();
+                    console.log('pokrenut create form');
                 }
             }, 100);
             console.log("ovo je lista required fields5: " + this.requiredDataListReceive);
