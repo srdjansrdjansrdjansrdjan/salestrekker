@@ -319,6 +319,8 @@ var DashboardComponent = /** @class */ (function () {
         // sve treba da je izlistano na novoj stranici npr pregled formi 
         this.au.submitUserCreatedForm(userFormCreated).subscribe(function (data) {
             if (data.success) {
+                _this.dtf.addfinalFormId('');
+                console.log('should be "" finalFormId after reset: ' + _this.dtf.getfinalFormId);
                 _this.dtf.addfinalFormId(data.CFBU._id);
                 // console.log(data.CFBU._id)
                 // console.log("dobije se finalFormId: " + data.CFBU._id)
