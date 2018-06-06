@@ -251,6 +251,7 @@ var DashboardComponent = /** @class */ (function () {
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.dtf.addfinalFormId('');
         // dobijemo usera iz baze
         this.au.getProfile().subscribe(function (profile) {
             _this.user = profile.user;
@@ -320,7 +321,7 @@ var DashboardComponent = /** @class */ (function () {
         this.au.submitUserCreatedForm(userFormCreated).subscribe(function (data) {
             if (data.success) {
                 _this.dtf.addfinalFormId('');
-                console.log('should be "" finalFormId after reset: ' + _this.dtf.getfinalFormId);
+                console.log('should be "" finalFormId after reset: ' + _this.dtf.getfinalFormId());
                 _this.dtf.addfinalFormId(data.CFBU._id);
                 // console.log(data.CFBU._id)
                 // console.log("dobije se finalFormId: " + data.CFBU._id)
